@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+<style>
+    /* .wrapper{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap: 2px;
+    } */
+
+    .box1 {
+        width: 50px;
+        height: 50px;
+        background-color: aliceblue;
+    }
+    .box2 {
+        width: 50px;
+        height: 50px;
+        background-color: black;
+    }
+</style>
+
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}"> -->
+    <!-- <style>
+        table tr td{
+            width: 50px;
+            height:50px;
+        }
+        .color1{
+            background-color: blue;
+        }
+        .color2{
+            background-color: red;
+        }
+
+    </style> -->
+
+</head>
+<body>
+    <h1>8 by 8 Checkerboard</h1>
+    <table> <!-- class="wrapper"> -->
+        {% for i in range(4): %}
+        <tr>
+            {% for j in range(4): %}
+            <td class='box1' style="background-color: {{ color }};"></td>
+            <td class='box2'></td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for j in range(4): %}
+            <td class='box2'></td>
+            <td class='box1' style="background-color: {{ color }};"></td>
+            {% endfor%}
+        </tr>
+        {% endfor %}
+    </table>
+<!-- 
+    <h1>6 by 6 matrix - refactoring</h1>
+    <table>
+        {% for i in range(12): %}
+        <tr>
+            {% for j in range(12): %}
+            <td class='color{{ (i+j)%2+1 }}'></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table> -->
+
+</html>
