@@ -5,8 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkerboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <!-- <style>
+        table tr td{
+            width: 50px;
+            height:50px;
+        }
+        .color1{
+            background-color: blue;
+        }
+        .color2{
+            background-color: red;
+        }
+
+    </style> -->
+
 </head>
 <body>
-    <h1>Checker Me This</h1>
-</body>
+    <h1>8 by 8 Checkerboard</h1>
+    <table>
+        {% for i in range(4): %}
+        <tr>
+            {% for j in range(4): %}
+            <td class='color1'></td>
+            <td class='color2'></td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for j in range(4): %}
+            <td class='color2'></td>
+            <td class='color1'></td>
+            {% endfor%}
+        </tr>
+        {% endfor %}
+    </table>
+<!-- 
+    <h1>6 by 6 matrix - refactoring</h1>
+    <table>
+        {% for i in range(12): %}
+        <tr>
+            {% for j in range(12): %}
+            <td class='color{{ (i+j)%2+1 }}'></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table> -->
+
 </html>
