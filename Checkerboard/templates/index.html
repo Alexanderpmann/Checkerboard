@@ -5,7 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkerboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+<style>
+    /* .wrapper{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap: 2px;
+    } */
+
+    .box1 {
+        width: 50px;
+        height: 50px;
+        background-color: aliceblue;
+    }
+    .box2 {
+        width: 50px;
+        height: 50px;
+        background-color: black;
+    }
+</style>
+
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}"> -->
     <!-- <style>
         table tr td{
             width: 50px;
@@ -23,18 +43,18 @@
 </head>
 <body>
     <h1>8 by 8 Checkerboard</h1>
-    <table>
+    <table> <!-- class="wrapper"> -->
         {% for i in range(4): %}
         <tr>
             {% for j in range(4): %}
-            <td class='color1'></td>
-            <td class='color2'></td>
+            <td class='box1' style="background-color: {{ color }};"></td>
+            <td class='box2'></td>
             {% endfor %}
         </tr>
         <tr>
             {% for j in range(4): %}
-            <td class='color2'></td>
-            <td class='color1'></td>
+            <td class='box2'></td>
+            <td class='box1' style="background-color: {{ color }};"></td>
             {% endfor%}
         </tr>
         {% endfor %}
